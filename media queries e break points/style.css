@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.grid {
+    padding: 15px;
+}
+.grid::after { /* Limpa o float */
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid .col {
+    width: 33.33%;
+    height: 300px;
+    float: left;
+    padding: 15px;
+}
+
+.grid .col .col-content {
+    width: 100%;
+    height: 100%;
+    background: red;
+}
+
+@media all and (max-width: 800px) {
+    .grid .col {
+        width: 50%;
+    }
+}
+
+@media all and (min-width: 400px) and (max-width: 600px){
+    .grid .col {
+        width: 100%;
+    }
+}
+
+@media all and (min-width: 1200px) { 
+    .grid .col {
+        width: 25%;
+    }
+}
+
+
+
