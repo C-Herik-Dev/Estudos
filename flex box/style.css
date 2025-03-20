@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row; /* dependendo do valor row ou column o main axis (eixo prrincipal) muda */
+    justify-content: space-evenly; /* eixo X = horizontal.  */
+    align-items: stretch; /* eixo y = vertical. */ 
+    background: rgb(0, 119, 255);
+    height: 500px;
+}
+
+.flex-item {
+    width: 100%;
+    background: rgb(0, 255, 255);
+    margin: 10px;
+}
