@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem; /* "rem" é baseado no hoot = html 1.6rem = 16px */
+}
+
+nav {
+    background-color: black;
+    width: 100vw;
+    height: 60px;
+    display: block;
+    position: fixed;
+    display: block;
+}
+.um {
+    padding-top: 60px;
+    background-color: red;
+    width: 100vw;
+    height: 100vh;
+}
+
+.dois{
+    padding-top: 60px;
+    background-color: green;
+    width: 100vw;
+    height: 100vh;
+}
+
+.tres{
+    padding-top: 60px;
+    background-color: blue;
+    width: 100vw;
+    height: 100vh;
+}
