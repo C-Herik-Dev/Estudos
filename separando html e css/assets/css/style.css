@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgba(84, 175, 187, 0.253);
+}
+
+body section p, body section h1{
+    color: rgb(255, 0, 0);
+}
+
+h1, p {
+    color: rgb(49, 11, 110);
+}
+
+.title {
+    color: rgb(0, 0, 0);
+}
+
+.main-container h2 {
+    font-family: italic;
+    color: rgb(117, 241, 0)     ;
+}
