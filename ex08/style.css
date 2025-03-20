@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    background-color: #95f644;
+    color: #c9fc9e;
+    padding-top: 60px;
+    padding-bottom: 20px;
+}
+
+h2{
+    color: #DDFC46;
+}
+
+p{
+    text-align: justify;
+    font-size: 12px;
+}
+li{
+    color: #DDFC46;
+}
+
+.botao{
+    background-color: #40E69F;
+    color: #9AF6CF;
+    padding: 5px 57px;
+    border: solid 1px #40E69F;
+}
+
+button{
+    background-color: #9AF6CF;
+    padding: 5px 57px;
+    border: solid 1px #9AF6CF;
+}
+hr{
+    color: #40E69F;
+    border: solid 0.1px;
+}
+
+main{
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #52836eb2;
+}
+body{
+    background-color: #9AF6CF;
+}
