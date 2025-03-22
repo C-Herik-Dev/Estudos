@@ -1,0 +1,50 @@
+@charset "UFT-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:sans-serif;
+    font-size: 30px;
+}
+
+.container {
+    max-width: 1200Px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    margin-right: -30px;
+
+    /*max-width: 1200px; 
+    width: calc(100% + 30px);  calc pode não funcionar em outros navegadores
+    margin: 0 auto; 
+    gap: 30px 80px; linha e coluna
+    row-gap: 50px;
+    column-gap: 50px; 
+       --> GAP não funciona em navegadores antigos <- */
+
+
+}
+
+.grid div {
+    background-color: darkorchid;
+    min-height: 100px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+
+.grid div:nth-child(5) {
+    background-color: darkslateblue;
+}
+
+@media (max-width: 768px) {
+    .grid div:nth-child(5) {
+        grid-column: span 1;
+}}
