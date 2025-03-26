@@ -10,10 +10,10 @@
     display: flex;
     /*flex-direction: row; /* dependendo do valor row ou column o main axis (eixo principal) muda */
     /*flex-wrap: wrap; Quebra a linha */
+    flex-flow: row wrap; /*flex-direction + flex-wrap */
     justify-content: space-between; /* eixo X = horizontal.  */
     /*align-items: center; /* eixo y = vertical. Sobre itens e linhas.*/ 
     /*align-content: stretch; /*alinha o conteúdo todo.*/
-    flex-flow: row wrap; /*flex-direction + flex-wrap */
     background: rgb(0, 119, 255);
     
      
@@ -22,10 +22,11 @@
 .flex-item {
     /*flex-grow: 1; /*Ocupa todo o espaço disponível
     flex-basis: 320px; da o tamanho inicial do elemento
-    flex-shrink: 0; permete ou não a diminuição do elemento */
+    flex-shrink: 0; permite ou não a diminuição do elemento */
     flex: 1 1 320px; /*na ordem: flex-grow flex-shrink flex-basis*/
-    height: 200px;
+    height: 10px;
     background: rgb(0, 255, 255);
+    margin: 10px;
     
 }
 
