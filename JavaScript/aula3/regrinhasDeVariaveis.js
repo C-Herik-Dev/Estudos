@@ -4,6 +4,7 @@ console.log(nome); //imprime o valor da variável nome no console
 nome = 'Carlos';
 console.log(nome);
 
+//Regrinhas de variáveis
 
 // Não podemos criar variáveis com palavras reservadas do JavaScript
 
