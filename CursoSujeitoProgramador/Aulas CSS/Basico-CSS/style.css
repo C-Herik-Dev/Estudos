@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+* {
+    outline: 0px;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 180vh;
+}
+
+.container {
+   width: 700px;;
+   background-color: rgba(0, 0, 0, 0.753);
+    color: white;
+    margin: auto;
+    padding: 50px;
+    border: solid 5px rgb(255, 0, 0);
+    border-radius: 5px;
+    
+}
+
+.contatos h2 {
+    text-align: center;
+}
+
+.contatos ul {
+   text-align: center;
+    list-style: none;
+}
+
+.contatos a {
+  text-decoration: none;
+  color: black;
+}
+
+.contatos li {
+  margin: 12px;
+}
+
+.contatos a:hover {
+    color: rgba(255, 0, 212, 0.699);
+    font-weight: bold;
+}
+
+/**
+Sobre positions static e relative
+1. Por padrão temos o Static ou seja estatico.
+
+2. Relative, elemento é posicionado em relação a sua posição normal. (top, bottom, left, right)
+
+3. Absolute, elemento é posicionado em relação ao seu elemento pai mais próximo que não seja static.
+
+4. Fixed, elemento é posicionado em relação a janela do navegador.
+
+5. Sticky, elemento é posicionado de forma relativa até que um certo ponto de scroll seja alcançado.
+**/
+
+.area {
+    width: 650px;
+    height: 650px;
+    background-color: rgba(255, 0, 0, 0.753);
+    position: relative;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(0, 255, 0, 0.753);
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+
+.teste1 {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(0, 0, 255, 0.753);
+    bottom: 20px;
+    left: 20px;
+}
+
+header {
+    background-color: rgba(0, 255, 242, 0.904);
+    width: 100%;
+
+    position: sticky;
+    top: 0;
+   
+}
