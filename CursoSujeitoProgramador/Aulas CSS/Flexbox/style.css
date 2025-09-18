@@ -1,0 +1,66 @@
+.container {
+  background-color: black;
+  height: 500px;
+  margin: 50px;
+
+  display: flex;
+  flex-direction: row; 
+  /* row | row-reverse | column | column-reverse */
+
+  /*Dependendo do flex-direction (row ou column) muda como os itens iram se comportar no justify-content e align-items.*/
+
+  justify-content: center; 
+  /* Justify-content -> Eixo Horizontal*/
+  /* flex-start - itens no inicio
+  flex-end - itens no final
+  center - itens no centro
+  space-between - espaço entre OS itens
+  space-around - espaço AO REDOR dos itens */
+
+  align-items: center; 
+  /* Align-items -> Eixo Vertical */
+  /* flex-start - itens no inicio
+  flex-end - itens no final
+  center - itens no centro
+  stretch - itens esticados
+  baseline - itens alinhados pela linha de base */
+  
+
+}
+
+.area {
+  width: 100px;
+  height: 100px;
+  /* flex-basis: 400px; */
+}
+
+.item-1 {
+  background-color: red;
+  /* flex: 1; */
+
+  /* flex-shrink: 1; */
+  /* determina o tanto que o elemento ira diminuir*/
+
+  /* order: 3; */
+  /* determina a ordem dos elementos */
+}
+
+.item-2 {
+  background-color: blue;
+  /* flex: 2; */
+
+  /* flex-shrink: 1; */
+
+  /* order: 2; */
+
+}
+
+.item-3 {
+  background-color: rgb(60, 255, 0);
+  /* flex: 3; */
+
+  /* flex-shrink: 2; */
+  /* flex-shrink: 2; esse item irá diminuir 2x mais que os outros com apenas "1" */
+
+  /* order: 1; */
+}
