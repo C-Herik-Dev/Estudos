@@ -1,6 +1,6 @@
 // Arrays são objetos especiais, que podem ser manipulados de várias formas.
 // Os arrays são objetos que podem conter qualquer tipo de dado, incluindo outros arrays.
-//               0       1        2
+//                   0       1        2
 //const alunos = ['Luiz', 'Maria', 'João'];
 //console.log(alunos);
 //console.log(alunos[0]); // Luiz [1] Maria [2] João
