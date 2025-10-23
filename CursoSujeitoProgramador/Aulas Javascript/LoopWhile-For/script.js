@@ -9,6 +9,6 @@ while(x <= 10){
   x++
 } */
 
-for(a = 0; a <= 5; a++){
+for(a = 0; a <= 10; a++){
   document.write("<br> O Valor do a é: " + a);
 }
