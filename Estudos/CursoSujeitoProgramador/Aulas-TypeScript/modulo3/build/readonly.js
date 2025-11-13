@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 class Pessoa {
     id = "135420";
     nome;
@@ -11,4 +9,5 @@ class Pessoa {
 }
 const carlos = new Pessoa("Carlos", 30);
 console.log(carlos);
+export {};
 //# sourceMappingURL=readonly.js.map

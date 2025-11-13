@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 class ContaBanco {
 }
 class PessoaFisica extends ContaBanco {
@@ -30,4 +28,5 @@ sujeitoprogramador.abrirConta({
     numero: "90201-x",
     endereco: "Avenida dez, centro"
 });
+export {};
 //# sourceMappingURL=abstrata.js.map

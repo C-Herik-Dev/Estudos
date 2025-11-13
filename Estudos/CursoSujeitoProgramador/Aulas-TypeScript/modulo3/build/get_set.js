@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 class Jogo {
     servidor;
     id = "135420";
@@ -32,4 +30,5 @@ catch (error) {
     }
 }
 console.log(GTA.getServidorIP);
+export {};
 //# sourceMappingURL=get_set.js.map

@@ -1,4 +1,3 @@
-"use strict";
 // herança > uma classe pode herdar propriedades e métodos de outra classe
 // classePai tem seus atributos e métodos herdados pela classeFilha
 /*
@@ -29,7 +28,6 @@ class Admin extends Usuario{
 const usuario1 = new Admin(123542, "heriky", "herik@herik.com", "admin", 1);
 console.log(usuario1);
 */
-Object.defineProperty(exports, "__esModule", { value: true });
 /*
 ENCAPSULAMENTO > controlar o acesso aos dados de uma classe,
 permitindo que apenas métodos específicos possam ler ou modificar esses dados.
@@ -74,4 +72,5 @@ const usuario1 = new Admin(123542, "heriky", "herik@herik.com", "admin", 1);
 //usuario1.id; // Erro: A propriedade 'id' é protegida e só pode ser acessada dentro da classe 'Usuario' e suas subclasses.
 console.log(usuario1);
 usuario1.mudarCargo();
+export {};
 //# sourceMappingURL=heranca.js.map

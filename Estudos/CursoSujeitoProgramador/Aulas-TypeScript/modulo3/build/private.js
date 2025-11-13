@@ -1,6 +1,4 @@
-"use strict";
 // metodo private bem mais restrito que o protected
-Object.defineProperty(exports, "__esModule", { value: true });
 class Conta {
     limite = 450;
     aumentarLimite(quantidade) {
@@ -24,4 +22,5 @@ class Conta {
 const fulaninho = new Conta();
 fulaninho.solicitarLimiteApp(true, 900);
 console.log(fulaninho);
+export {};
 //# sourceMappingURL=private.js.map

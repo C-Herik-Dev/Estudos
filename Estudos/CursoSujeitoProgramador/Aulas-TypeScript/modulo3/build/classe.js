@@ -1,4 +1,3 @@
-"use strict";
 /*
  ### O que é uma Classe? ###
   Uma classe é um molde (ou template) para criar objetos com propriedades e métodos específicos.
@@ -6,7 +5,6 @@
 
   Ou seja, um conjunto de atributos e metodos que caracterizam um objeto.
  */
-Object.defineProperty(exports, "__esModule", { value: true });
 class Loja {
     // Atributos
     nome;
@@ -40,4 +38,5 @@ loja1.criarLoja();
 const returnoPedido = loja1.emitirPedido(5, "X-Burger", "Batata Frita", "Refrigerante");
 console.log(returnoPedido);
 loja1.mudaStatus("fechado");
+export {};
 //# sourceMappingURL=classe.js.map
