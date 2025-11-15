@@ -24,7 +24,24 @@ function logInfo(mensagem: string){
   }
 }
 
-@logInfo("Servidor esá rodando...") 
-class Sistema{
+@logInfo("Servidor esá rodando...")  // Chamando o decorator
+class Sistema{ // Decorator de classe
 
 }
+
+
+// ====================== PRATICANDO ======================================
+
+function setIpServidor(novoIP: string){
+  return (target: any) => { // Target é o construtor da classe
+    return class extends target{
+      ip = novoIP;
+    }
+  }
+}
+
+@setIpServidor("135.205.55.10") // Chamando o decorator
+class Servidor{} // Decorator que seta o IP do servidor
+
+const serv1 = new Servidor();
+console.log(serv1);

@@ -6,9 +6,6 @@
   Ou seja, um conjunto de atributos e metodos que caracterizam um objeto.
  */
 class Loja {
-    // Atributos
-    nome;
-    endereco;
     // Metodo construtor da classe
     constructor(nome, endereco) {
         this.nome = nome;

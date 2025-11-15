@@ -1,6 +1,8 @@
 // metodo private bem mais restrito que o protected
 class Conta {
-    limite = 450;
+    constructor() {
+        this.limite = 450;
+    }
     aumentarLimite(quantidade) {
         if (quantidade < 1000) {
             this.limite = quantidade;

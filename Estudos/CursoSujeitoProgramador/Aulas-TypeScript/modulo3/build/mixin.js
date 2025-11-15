@@ -8,13 +8,11 @@ class Automovel {
     }
 }
 class Especificacao {
-    descricao;
     constructor(descricao) {
         this.descricao = descricao;
     }
 }
 class Carro {
-    nome;
     constructor(nome) {
         this.nome = nome;
     }

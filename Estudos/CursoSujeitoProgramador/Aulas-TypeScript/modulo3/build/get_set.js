@@ -1,7 +1,6 @@
 class Jogo {
-    servidor;
-    id = "135420";
     constructor(servidor) {
+        this.id = "135420";
         this.servidor = servidor;
     }
     // Metodo GET = Para pegar o valor ao inves de acessar diretamente a prorpriedade

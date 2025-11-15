@@ -46,9 +46,6 @@ permitindo que apenas métodos específicos possam ler ou modificar esses dados.
 
 */
 class Usuario {
-    id; // podemos chamar na classe usuario ou na classe que extende a classe usuario
-    nome;
-    email;
     constructor(id, nome, email) {
         this.id = id;
         this.nome = nome;
@@ -56,8 +53,6 @@ class Usuario {
     }
 }
 class Admin extends Usuario {
-    cargo;
-    nivel;
     constructor(id, nome, email, cagor, nivel) {
         super(id, nome, email); // precisa ser o primeiro a ser chamado
         this.cargo = cagor;

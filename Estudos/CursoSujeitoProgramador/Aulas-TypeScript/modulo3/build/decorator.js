@@ -30,7 +30,25 @@ function logInfo(mensagem) {
 let Sistema = class Sistema {
 };
 Sistema = __decorate([
-    logInfo("Servidor esá rodando...")
+    logInfo("Servidor esá rodando...") // Chamando o decorator
 ], Sistema);
+// ====================== PRATICANDO ======================================
+function setIpServidor(novoIP) {
+    return (target) => {
+        return class extends target {
+            constructor() {
+                super(...arguments);
+                this.ip = novoIP;
+            }
+        };
+    };
+}
+let Servidor = class Servidor {
+}; // Decorator que seta o IP do servidor
+Servidor = __decorate([
+    setIpServidor("135.205.55.10") // Chamando o decorator
+], Servidor);
+const serv1 = new Servidor();
+console.log(serv1);
 export {};
 //# sourceMappingURL=decorator.js.map
