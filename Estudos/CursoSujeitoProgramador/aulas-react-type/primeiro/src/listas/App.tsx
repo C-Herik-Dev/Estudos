@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
 
 export default function App() {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -27,7 +27,7 @@ export default function App() {
 
   }, [tasks])
 
-  function handleRegister(){
+  const handleRegister = useCallback(() => {
     if(!input){
       alert("Preencha o campo com o nome da tarefa primeiro!");
       return;
@@ -40,8 +40,8 @@ export default function App() {
 
     setTasks(tarefas => [...tarefas, input]);
     setInput("");
-    
-  }
+  }, [input, tasks]);
+
 
   function handleSaveEdit(){
     const findIndexTask = tasks.findIndex( task => task === editTask.task);
@@ -73,7 +73,9 @@ export default function App() {
     })
   }
 
-
+  const totalTarefas = useMemo( () =>{
+    return tasks.length;
+  },[tasks])
 
   return (
     <div>
@@ -88,6 +90,9 @@ export default function App() {
         {editTask.enable ? "Atualizar tarefa" : "Adicionar tarefa"}
         </button>   
       <hr />
+
+      <strong>Você tem {totalTarefas} tarefas!</strong>
+      <br /> <br />
       {tasks.map( (item) => (
         <section key= {item}>
           <span>{item}</span>
