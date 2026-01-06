@@ -1,0 +1,88 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  color: #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.center {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  color: #f9fafb;
+}
+
+.content {
+  width: 100%;
+  max-width: 520px;
+  background: #151821;
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.coinIcon {
+  width: 72px;
+  height: 72px;
+  display: block;
+  margin: 0 auto 1rem;
+  transition: all 1s;
+}
+
+.coinIcon:hover{
+  transform: rotate(360deg);
+}
+
+.content h1 {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.content p,
+.content a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  padding: 0.6rem 0;
+  color: #cbd5e1;
+}
+
+.content strong {
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.content p:not(:last-child),
+.content a:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.profit {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.loss {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .content {
+    padding: 1.5rem;
+  }
+
+  .center {
+    font-size: 1.8rem;
+  }
+}
