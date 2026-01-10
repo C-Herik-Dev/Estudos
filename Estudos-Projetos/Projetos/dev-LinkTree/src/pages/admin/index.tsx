@@ -1,6 +1,6 @@
 import { Header } from '../../components/header'
 import { Input } from '../../components/input'
-import { useState, type FormEvent } from 'react'
+import { useEffect ,useState, type FormEvent } from 'react'
 import { FiTrash } from 'react-icons/fi'
 import { db } from '../../services/firebaseConnection'
 import {
@@ -13,11 +13,46 @@ import {
   deleteDoc,
 } from 'firebase/firestore'
 
+interface LinkProps{
+  id: string,
+  name: string,
+  url: string,
+  bg: string,
+  color: string;
+}
+
 export function Admin() {
   const [nameInput, setNameInput ] = useState('')
   const [urlInput, setUrlInput] = useState('')
   const [textColorInput, setTextColorInput] = useState('#f1f1f1')
   const [backgroundColorInput, setBackgroundColorInput] = useState('#121212')
+  const [links, setLinks] = useState<LinkProps[]>([])
+
+  useEffect(() =>{
+    const linksRef = collection(db, "links");
+    const queryRef = query(linksRef, orderBy("created", "asc"))
+
+    const unsub = onSnapshot(queryRef, (snapshot) => {
+       let lista= [] as LinkProps[];
+
+       snapshot.forEach((doc) => {
+        lista.push({
+          id: doc.id,
+          name: doc.data().name,
+          url: doc.data().url,
+          bg: doc.data().bg,
+          color: doc.data().color
+        })
+
+        setLinks(lista)
+
+       })
+
+       return () => {
+        unsub();
+       }
+    })
+  }, [])
 
   function handleRegister(e: FormEvent){
     e.preventDefault();
@@ -42,6 +77,11 @@ export function Admin() {
     .catch((error) => {
       console.log("Erro ao cadastrar no banco!" + error)
     })
+  }
+
+  async function handleDeleteLink(id: string) {
+    const docRef = doc(db, "links", id)
+    await deleteDoc(docRef)
   }
 
   return (
@@ -106,18 +146,23 @@ export function Admin() {
         Meus links
       </h2>
 
-      <article className='flex items-center justify-between w-11/12 max-w-xl rounded py-3 px-2 mb-2 select-none'
-      style={{backgroundColor: "#2563eb", color: "#fff"}}
+      {links.map( (link) => (
+        <article 
+        key={link.id}
+        className='flex items-center justify-between w-11/12 max-w-xl rounded py-3 px-2 mb-2 select-none'
+      style={{backgroundColor: link.bg, color: link.color}}
       >
-        <p>{urlInput}</p>
+        <p>{link.name}</p>
         <div>
           <button
+          onClick={() => handleDeleteLink(link.id)}
           className='border border-dashed py-1 rounded bg-neutral-900 cursor-pointer'
           >
             <FiTrash size={18} color="#fff"/>
           </button>
         </div>
       </article>
+      ))}
 
     </div>
   )

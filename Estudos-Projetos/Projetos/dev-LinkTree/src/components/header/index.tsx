@@ -22,7 +22,7 @@ export function Header() {
             Home
           </Link>
 
-          <Link to='admin'
+          <Link to='/admin'
           className="relative text-slate-700 hover:text-slate-900
              after:content-[''] after:absolute after:left-0 after:-bottom-1
              after:w-0 after:h-0.5 after:bg-slate-900
