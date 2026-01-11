@@ -9,13 +9,6 @@ import {
   getDoc
 } from 'firebase/firestore'
 
-interface LinkProps{
-  id: string,
-  name: string,
-  url: string,
-  bg: string,
-  color: string;
-}
 
 
 export function Networks() {
