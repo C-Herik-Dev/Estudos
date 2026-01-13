@@ -22,4 +22,4 @@ Aplicação web para listagem e visualização de informações sobre filmes, co
 - Componentização e reutilização de código
 
 ## 🚀 Deploy
-_
+_https://primefllix.vercel.app/
