@@ -1,4 +1,4 @@
-# CryptoTracker
+# DevCurrency
 
 Aplicação para acompanhar informações do mercado de criptomoedas em tempo real, consumindo dados de uma API pública.
 
