@@ -23,4 +23,4 @@ Aplicação para acompanhar informações do mercado de criptomoedas em tempo re
 - Tratamento de dados assíncronos
 
 ## 🚀 Deploy
-_
+_https://devcurrency-plum.vercel.app/
