@@ -46,10 +46,12 @@ Aplicação inspirada no Linktree para centralização de links pessoais e profi
 ### 🎬 PrimeFlix
 Aplicação web para listagem e visualização de filmes, consumindo uma API externa.  
 **Tecnologias:** React, consumo de API REST
+🔗 Deploy: https://primefllix.vercel.app/
 
-### 📈 CryptoTracker
+### 📈 DevCurrency
 Aplicação para acompanhamento de informações do mercado de criptomoedas em tempo real.  
 **Tecnologias:** React, TypeScript, consumo de API REST
+🔗 Deploy: https://devcurrency-plum.vercel.app/
 
 📌 Mais detalhes podem ser encontrados no README de cada projeto.
 
