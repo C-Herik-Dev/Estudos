@@ -72,8 +72,8 @@ export function Home() {
 
   return (
     <div className="flex flex-col w-full py-4 items-center justify-center">
-      <h1 className="md:text-4xl text-3xl font-bold text-white mt-20">
-        Carlos Herik
+      <h1 className="mt-11 text-white mb-7 font-bold text-5xl">Dev
+          <span className="bg-linear-to-r from-yellow-500 to-orange-400 bg-clip-text text-transparent ">Link</span>
         </h1>
       <span className="text-gray-50 mb-5 mt-3">Veja meus links 👇</span>
 
