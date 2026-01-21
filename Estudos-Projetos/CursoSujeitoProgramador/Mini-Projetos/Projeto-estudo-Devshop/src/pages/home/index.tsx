@@ -1,29 +1,64 @@
 import { BsCartPlus } from 'react-icons/bs'
+import { useState, useEffect, useContext } from 'react'
+
+import {api} from '../../services/api'
+import { CartContext } from '../../context/CartContext'
+
+export interface ProductsProps{
+  id: number;
+  price: number;
+  title: string;
+  cover: string;
+  description: string;
+} 
 
 export function Home(){
+  const [products, setProducts] = useState<ProductsProps[]>([])
+  const { addItemCart } =useContext(CartContext)
+
+  useEffect(() => {
+    async function getProducts() {
+      const response = await api.get("/products")
+      setProducts(response.data)
+    }
+
+    getProducts()
+  }, [])
+
+  function handleAddCartItem(products: ProductsProps) {
+    addItemCart(products)
+  }
+
   return (
     <div>
       <main className="w-full max-w-7xl px-4 mx-auto">
         <h1 className="font-bold text-2xl mb-4 mt-10 text-center">Produtos em alta</h1>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
-          <section className='w-full lg:w-auto'>
+          {products.map((products) => (
+            <section key={products.id} className='w-full '>
             <img
-              className='w-full rounded-lg max-h-70 mb-2'
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZJP8i_HT-mrVWOl-J_ZPbwrxyPQKVf-Q_xw&s"
-              alt="Logo do produto"
+              className='w-auto rounded-lg max-h-70 mb-2'
+              src={products.cover}
+              alt={products.title}
             />
-            <p className='font-medium mt-1 mb-2'>Teclado Gamer</p>
+            <p className='font-medium mt-1 mb-2'>{products.title}</p>
 
             <div className='flex gap-3 items-center'>
               <strong className='text-zinc-700/90'>
-                R$ 500
+                {products.price.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL"
+                })}
               </strong>
-              <button className='bg-zinc-900 p-1 rounded'>
+              <button className='bg-zinc-900 p-1 rounded cursor-pointer' 
+              onClick={ () => handleAddCartItem(products)}
+              >
                 <BsCartPlus size={20} color="#fff"/>
               </button>
             </div>
           </section>
+          ))}
         </div>
       </main>
     </div>
