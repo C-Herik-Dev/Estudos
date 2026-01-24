@@ -18,8 +18,12 @@ export function Home(){
 
   useEffect(() => {
     async function getProducts() {
-      const response = await api.get("/products")
+      try{
+        const response = await api.get<ProductsProps[]>("/products")
       setProducts(response.data)
+      } catch(error){
+        console.log("erro ao buscar produtos", error)
+      }
     }
 
     getProducts()
