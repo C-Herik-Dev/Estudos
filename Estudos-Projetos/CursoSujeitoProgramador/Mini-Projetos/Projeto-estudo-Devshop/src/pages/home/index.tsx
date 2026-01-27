@@ -3,6 +3,8 @@ import { useState, useEffect, useContext } from 'react'
 
 import {api} from '../../services/api'
 import { CartContext } from '../../context/CartContext'
+import { toast } from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 
 export interface ProductsProps{
   id: number;
@@ -30,6 +32,7 @@ export function Home(){
   }, [])
 
   function handleAddCartItem(products: ProductsProps) {
+    toast.success("Produto adicionado no carrinho.")
     addItemCart(products)
   }
 
@@ -38,14 +41,15 @@ export function Home(){
       <main className="w-full max-w-7xl px-4 mx-auto">
         <h1 className="font-bold text-2xl mb-4 mt-10 text-center">Produtos em alta</h1>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-5" >
           {products.map((products) => (
-            <section key={products.id} className='w-full '>
+            <section key={products.id} className='w-full'>
+              <Link to={`details/${products.id}`}>
             <img
               className='w-auto rounded-lg max-h-70 mb-2'
               src={products.cover}
-              alt={products.title}
-            />
+              alt={products.title}/>
+              </Link>
             <p className='font-medium mt-1 mb-2'>{products.title}</p>
 
             <div className='flex gap-3 items-center'>
