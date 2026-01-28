@@ -32,7 +32,7 @@ export function Home(){
   }, [])
 
   function handleAddCartItem(products: ProductsProps) {
-    toast.success("Produto adicionado no carrinho.")
+    
     addItemCart(products)
   }
 

@@ -1,5 +1,6 @@
 import { createContext, useState, type ReactNode } from 'react'
 import type { ProductsProps } from '../pages/home';
+import { toast } from 'react-hot-toast'
 
 interface CartProps{
   id: number;
@@ -36,7 +37,7 @@ function CartProvider( { children }: CartProviderProps) {
       let cartList = cart;
       cartList[indexItem].amount = cartList[indexItem].amount + 1;
       cartList[indexItem].total = cartList[indexItem].amount * cartList[indexItem].price;
-
+      toast.success("Quantidade atualizada no carrinho.")
       setCart(cartList)
       totalResultCart(cartList)
       return;
@@ -47,7 +48,7 @@ function CartProvider( { children }: CartProviderProps) {
       amount: 1,
       total: newItem.price
     }
-
+    toast.success("Produto adicionado no carrinho.")
     setCart(products => [...products, data])
     totalResultCart([...cart, data])
   }
