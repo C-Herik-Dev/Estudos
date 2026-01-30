@@ -17,6 +17,7 @@ interface CartContextData{
   cartAmount: number;
   addItemCart: (newItem: ProductsProps) => void;
   removeItemCart: (product: CartProps) => void;
+  removeTotal: (product: CartProps) => void;
   total: string;
 }
 
@@ -78,12 +79,19 @@ function CartProvider( { children }: CartProviderProps) {
     setTotal(resultFormat)
   }
 
+  function removeTotal(product: CartProps){
+    const removeItem = cart.filter( item => item.id !== product.id)
+    setCart(removeItem)
+    totalResultCart(removeItem)
+  }
+
   return (
     <CartContext.Provider value={{ 
       cart,
       cartAmount: cart.length,
       addItemCart, 
       removeItemCart,
+      removeTotal,
       total
       }}
       >
