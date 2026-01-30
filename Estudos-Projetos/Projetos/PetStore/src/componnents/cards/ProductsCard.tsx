@@ -1,4 +1,7 @@
 import { BsCartPlus } from "react-icons/bs";
+import {useContext} from 'react'
+import { CartContext } from '../../context/CartContext'
+import type { ProductsProps } from '../../pages/home';
 
 interface Product {
   id: number;
@@ -7,7 +10,8 @@ interface Product {
   title: string;
 }
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({ product }: { product: ProductsProps }) {
+  const { addItemCart } = useContext(CartContext)
   return (
     <section className="w-full bg-white border border-gray-100 rounded-2xl px-6 py-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg flex flex-col">
       <div className="w-full h-40 flex items-center justify-center mb-4">
@@ -30,7 +34,9 @@ export function ProductCard({ product }: { product: Product }) {
           })}
         </strong>
 
-        <button className="bg-green-500 p-2 rounded-xl hover:bg-green-600 transition cursor-pointer flex-shrink-0">
+        <button 
+        onClick={() => addItemCart(product)}
+        className="bg-green-500 p-2 rounded-xl hover:bg-green-600 transition cursor-pointer flex-shrink-0">
           <BsCartPlus size={20} color="#fff" />
         </button>
       </div>

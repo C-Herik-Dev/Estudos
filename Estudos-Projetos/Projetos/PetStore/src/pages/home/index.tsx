@@ -1,19 +1,24 @@
 import heroImg from "../../assets/img/Cachorro.png";
 import { api } from "../../services/api";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { ProductCard } from "../../componnents/cards/ProductsCard";
 import { Newsletter } from "../../componnents/newsletter/Newsletter";
 
-interface ProductsProps {
+import { CartContext } from '../../context/CartContext'
+
+export interface ProductsProps {
   id: number;
   price: number;
   cover: string;
   title: string;
   description: string;
+  amount: number;
+  total: number;
 }
 
 export function Home() {
   const [products, setProducts] = useState<ProductsProps[]>([]);
+  const { addItemCart } = useContext(CartContext)
 
   useEffect(() => {
     async function loadProducts() {
@@ -51,7 +56,8 @@ export function Home() {
               brinquedos interativos e acessórios aconchegantes.
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-2 md:mt-6">
-              <button className="px-7 py-3 bg-green-500 text-white rounded-full font-semibold hover:bg-green-600 transition">
+              <button 
+              className="px-7 py-3 bg-green-500 text-white rounded-full font-semibold hover:bg-green-600 transition">
                 Comprar agora
               </button>
               <button className="px-7 py-3 border border-green-500/30 rounded-full font-semibold hover:bg-green-50 transition">
