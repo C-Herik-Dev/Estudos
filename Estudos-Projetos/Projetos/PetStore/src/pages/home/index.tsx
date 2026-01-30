@@ -1,10 +1,9 @@
 import heroImg from "../../assets/img/Cachorro.png";
 import { api } from "../../services/api";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { ProductCard } from "../../componnents/cards/ProductsCard";
 import { Newsletter } from "../../componnents/newsletter/Newsletter";
 
-import { CartContext } from '../../context/CartContext'
 
 export interface ProductsProps {
   id: number;
@@ -18,7 +17,6 @@ export interface ProductsProps {
 
 export function Home() {
   const [products, setProducts] = useState<ProductsProps[]>([]);
-  const { addItemCart } = useContext(CartContext)
 
   useEffect(() => {
     async function loadProducts() {
@@ -40,7 +38,7 @@ export function Home() {
             <img
               src={heroImg}
               alt="Banner Hero"
-              className="w-full h-64 md:h-auto aspect-[16/10] rounded-3xl object-cover shadow-sm"
+              className="w-full h-64 md:h-auto aspect-16/10 rounded-3xl object-cover shadow-sm"
             />
           </div>
           <div className="w-full md:flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-5">

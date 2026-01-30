@@ -1,6 +1,6 @@
 import { MdPets } from "react-icons/md"
 import { FiSearch, FiShoppingCart } from "react-icons/fi"
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import { CartContext } from '../../context/CartContext'
 

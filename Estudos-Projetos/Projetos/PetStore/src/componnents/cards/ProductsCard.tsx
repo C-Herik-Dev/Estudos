@@ -3,13 +3,6 @@ import {useContext} from 'react'
 import { CartContext } from '../../context/CartContext'
 import type { ProductsProps } from '../../pages/home';
 
-interface Product {
-  id: number;
-  price: number;
-  cover: string;
-  title: string;
-}
-
 export function ProductCard({ product }: { product: ProductsProps }) {
   const { addItemCart } = useContext(CartContext)
   return (
@@ -36,7 +29,7 @@ export function ProductCard({ product }: { product: ProductsProps }) {
 
         <button 
         onClick={() => addItemCart(product)}
-        className="bg-green-500 p-2 rounded-xl hover:bg-green-600 transition cursor-pointer flex-shrink-0">
+        className="bg-green-500 p-2 rounded-xl hover:bg-green-600 transition cursor-pointer shrink-0">
           <BsCartPlus size={20} color="#fff" />
         </button>
       </div>
