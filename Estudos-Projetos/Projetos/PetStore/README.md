@@ -3,6 +3,14 @@
 Projeto de estudo desenvolvido em **React + TypeScript**, simulando um e-commerce de PetShop.  
 O foco do projeto é praticar **componentização**, **Context API**, **estado global**, **layout responsivo** e **boas práticas de UI/UX**.
 
+📌 Observações
+Projeto desenvolvido com fins educacionais, como parte dos estudos em React.
+Não possui integração com backend real ou sistema de pagamento.
+
+## 📦 API
+
+Este projeto utiliza uma **API fake** apenas para fins de estudo, fornecida durante o curso.
+
 ---
 
 ## 🚀 Tecnologias utilizadas
@@ -40,8 +48,3 @@ O foco do projeto é praticar **componentização**, **Context API**, **estado g
 - Feedback visual com **notificações (toast)**
 - Simulação de finalização de compra
 
----
-
-## 📦 API
-
-Este projeto utiliza uma **API fake** apenas para fins de estudo, fornecida durante o curso.
