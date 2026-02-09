@@ -9,7 +9,7 @@ import { CartContext } from '../../context/CartContext'
 import toast from 'react-hot-toast'
 
 export function Cart() {
-  const { cart, addItemCart, removeItemCart ,cartAmount, total, removeTotal, clearCart } = useContext(CartContext)
+  const { cart, addItemCart, removeItemCart ,cartAmount, totalResultCart, removeTotal, clearCart } = useContext(CartContext)
 
   function handleFinishPurchase() {
   const toastId = toast.loading('Processando pagamento...')
@@ -112,7 +112,7 @@ export function Cart() {
             <div className="flex flex-col gap-4 text-sm">
               <div className="flex justify-between">
                 <span>Subtotal</span>
-                <strong>{total}</strong>
+                <strong>{totalResultCart}</strong>
               </div>
 
               <div className="flex justify-between">
@@ -124,7 +124,7 @@ export function Cart() {
 
               <div className="flex justify-between text-base sm:text-lg">
                 <strong>Total</strong>
-                <strong className="text-green-500">{total}</strong>
+                <strong className="text-green-500">{totalResultCart}</strong>
               </div>
             </div>
 

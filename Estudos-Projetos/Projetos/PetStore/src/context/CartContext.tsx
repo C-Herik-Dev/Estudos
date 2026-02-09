@@ -1,22 +1,22 @@
-import { createContext, type ReactNode, useState } from 'react'
-import type { ProductsProps } from '../pages/home'
-import toast from 'react-hot-toast';
+import { createContext, type ReactNode, useState, useMemo } from "react";
+import type { ProductsProps } from "../pages/home";
+import toast from "react-hot-toast";
 
-interface CartProviderProps{
+interface CartProviderProps {
   children: ReactNode;
 }
 
-interface CartContextData{
-  cart: CartProps[],
-  total: string,
-  cartAmount: number,
-  addItemCart: (newItem: ProductsProps) => void,
-  removeItemCart: (newItem: ProductsProps) => void,
-  removeTotal: (product: CartProps) => void,
-  clearCart: () => void
+interface CartContextData {
+  cart: CartProps[];
+  totalResultCart: string;
+  cartAmount: number;
+  addItemCart: (newItem: ProductsProps) => void;
+  removeItemCart: (newItem: ProductsProps) => void;
+  removeTotal: (product: CartProps) => void;
+  clearCart: () => void;
 }
 
-interface CartProps{
+interface CartProps {
   id: number;
   price: number;
   total: number;
@@ -25,82 +25,99 @@ interface CartProps{
   description: string;
   cover: string;
 }
-export const CartContext = createContext({} as CartContextData)
+export const CartContext = createContext({} as CartContextData);
 
-function CartProvider({children}: CartProviderProps) {
-  const [cart, setCart] = useState<CartProps[]>([])
-  const [total, setTotal] = useState('')
+function CartProvider({ children }: CartProviderProps) {
+  const [cart, setCart] = useState<CartProps[]>([]);
 
   function clearCart() {
-    setCart([])
+    setCart([]);
   }
 
- function addItemCart(newItem: ProductsProps){
-    const indexItem = cart.findIndex(item => item.id === newItem.id)
+  function addItemCart(newItem: ProductsProps) {
+    setCart((prevCart) => {
+      const itemIndex = prevCart.findIndex((item) => item.id === newItem.id);
 
-    if(indexItem !== -1){
-      let cartList = cart;
-      cartList[indexItem].amount = cartList[indexItem].amount + 1;
-      cartList[indexItem].total = cartList[indexItem].amount * cartList[indexItem].price;
-      toast.success("Quantidade atualizada no carrinho.")
-      setCart(cartList)
-      totalResultCart(cartList)
-      return;
-    }
+      if (itemIndex !== -1) {
+        const newCart = prevCart.map((item) => {
+          if (item.id === newItem.id) {
+            const amount = item.amount + 1;
+            return {
+              ...item,
+              amount,
+              total: amount * item.price,
+            };
+          }
+          return item;
+        });
 
-    let data= {
-      ...newItem,
-      amount: 1,
-      total: newItem.price
-    }
-    toast.success("Produto adicionado no carrinho.")
-    setCart(products => [...products, data])
-    totalResultCart([...cart, data])
+        return newCart;
+      }
+
+      const data = {
+        ...newItem,
+        amount: 1,
+        total: newItem.price,
+      };
+
+      toast.success("Produto adicionado no carrinho.");
+      return [...prevCart, data];
+    });
   }
 
-  function removeItemCart(product: CartProps){
-    const item = cart.findIndex(item => item.id === product.id)
+  function removeItemCart(product: CartProps) {
+    setCart((prevCart) => {
+      const item = prevCart.find((item) => item.id === product.id);
 
-    if(cart[item]?.amount > 1){
-      const myCart = cart;
-      myCart[item].amount = myCart[item].amount -1
-      myCart[item].total = myCart[item].total - myCart[item].price
+      if (!item) return prevCart;
 
-      setCart(myCart)
-      totalResultCart(myCart)
-      return
-    }
-      const removeItem = cart.filter(item => item.id !== product.id)
-      setCart(removeItem)
-      totalResultCart(removeItem)
-    }
+      if (item.amount > 1) {
+        return prevCart.map((i) => {
+          if (i.id === product.id) {
+            const amount = i.amount - 1;
+            return {
+              ...i,
+              amount,
+              total: amount * i.price,
+            };
+          }
+          return i;
+        });
+      }
 
-  function totalResultCart(items: CartProps[]) {
-    let myCart = items;
-    let result = myCart.reduce((valor, item) => {return valor + item.total}, 0)
-    const resultFormat = result.toLocaleString("pt-BR", {style: "currency", currency: "BRL"})
-    setTotal(resultFormat)
-    }
-
-    function removeTotal(product: CartProps){
-    const removeItem = cart.filter( item => item.id !== product.id)
-    setCart(removeItem)
-    totalResultCart(removeItem)
+      return prevCart.filter((item) => item.id !== product.id);
+    });
   }
 
-  return(
-    <CartContext.Provider value={{
-      cart,
-      total,
-      cartAmount: cart.length,
-      addItemCart,
-      removeItemCart,
-      removeTotal,
-      clearCart
-    }}>
+  const totalResultCart = useMemo(() => {
+    const result = cart.reduce((valor, item) => {
+      return valor + item.total;
+    }, 0);
+    return result.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+  }, [cart]);
+
+  function removeTotal(product: CartProps) {
+    setCart((prev) => prev.filter((item) => item.id !== product.id));
+  }
+
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        totalResultCart,
+        cartAmount: cart.length,
+        addItemCart,
+        removeItemCart,
+        removeTotal,
+        clearCart,
+      }}
+    >
       {children}
     </CartContext.Provider>
-  )
+  );
 }
 
 export default CartProvider;
