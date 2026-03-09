@@ -1,13 +1,15 @@
 import styles from "./home.module.css";
 import { Header } from "../../components/header";
 import { Link } from "react-router-dom";
+import { useState } from 'react'
 
 import { useSelector, useDispatch } from "react-redux";
-import { deleteAddress, fetchUsers } from '../../redux/user/slice';
+import { deleteAddress, fetchUsers, fetchUserById } from '../../redux/user/slice';
 
 export function Home() {
   const dispatch = useDispatch();
   const { user, users, loading } = useSelector((rootReducer) => rootReducer.user);
+  const [userId, setUserId] = useState(null);
 
   console.log(user);
 
@@ -18,6 +20,11 @@ export function Home() {
 
   function handleSeach() {
     dispatch(fetchUsers())
+  }
+  function handleSeachById() {
+    const userId = prompt("Digite o ID do usuário que deseja buscar:");
+    dispatch(fetchUserById(userId))
+    return userId;
   }
 
   return (
@@ -63,6 +70,7 @@ export function Home() {
 
             <h2>Lista de usuários</h2>
             <button onClick={handleSeach}>Buscar usuários</button>
+            <button onClick={handleSeachById}>Buscar usuário por ID</button>
             <br />
             {loading && <p>Carregando usuários...</p>}
 

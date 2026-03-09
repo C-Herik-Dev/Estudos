@@ -11,7 +11,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     createUser: (state, action) => {
-      const {name, email} = action.payload;
+      const { name, email } = action.payload;
 
       state.user = {
         name,
@@ -25,13 +25,13 @@ export const userSlice = createSlice({
     },
 
     addAddress: (state, action) => {
-      const {location, number} = action.payload;
+      const { location, number } = action.payload;
 
-      if(location === '' || number === ''){
+      if (location === '' || number === '') {
         alert("Por favor, preencha todos os campos de endereço.")
         return
       }
-      if(state.user === null){
+      if (state.user === null) {
         alert("Usuário não encontrado. Por favor, faça login para adicionar um endereço.")
         return
       }
@@ -41,9 +41,9 @@ export const userSlice = createSlice({
         number
       }
     },
-    
+
     deleteAddress: (state) => {
-      if(state.user){
+      if (state.user) {
         state.user.address = null;
       }
     },
@@ -54,14 +54,24 @@ export const userSlice = createSlice({
       console.log("Usuários buscados com sucesso:", action.payload);
       state.users = action.payload;
       state.loading = false;
-  },
+    },
     fetchUsersFailure: (state, action) => {
       console.error("Erro ao buscar usuários:", action.payload);
       state.loading = false;
     },
+    fetchUserById: (state) => {
+      console.log("Chamou no slice")
+    },
+    fetchUserByIdSuccess: (state, action) => {
+      console.log("User do ID")
+      console.log(action.payload)
+    },
+    fetchUserByIdFailure: (state, action) => {
+      console.error("Erro ao buscar usuário por ID:", action.payload);
+    }
   }
 })
 
-export const { createUser, logoutUser, addAddress, deleteAddress, fetchUsers, 
-fetchUsersSuccess, fetchUsersFailure } = userSlice.actions;
+export const { createUser, logoutUser, addAddress, deleteAddress, fetchUsers,
+  fetchUsersSuccess, fetchUsersFailure, fetchUserById, fetchUserByIdSuccess, fetchUserByIdFailure } = userSlice.actions;
 export default userSlice.reducer;
