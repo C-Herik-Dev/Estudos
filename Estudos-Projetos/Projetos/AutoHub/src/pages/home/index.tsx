@@ -18,22 +18,21 @@ export function Home() {
         <h1>Carros novos e usados em todo o Brasil</h1>
       </strong>
       <main className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-3">
-        <section className="bg-white w-full rounded-lg hover:scale-105 transition-all">
+        <section className="bg-white w-full rounded-lg hover:scale-105 transition-all shadow">
           <img 
           className="w-full rounded-lg mb-2 max-h-72"
           src="https://img1.icarros.com/dbimg/imgadicionalnoticia/4/115638_1.webp" 
           alt="carro a venda" />
           <p className="font-bold mt-1 mb-2 px-2">Carro AMG-ture</p>
-          <div className="">
-            <p className="font-bold mt-1 mb-2">04/03/2026 - 26999 km</p>
-          <strong>R$ 239.000</strong>
+          <div className="flex flex-col px-2">
+            <span className="text-zinc-700 mt-1 mb-6">04/03/2026 - 26999 km</span>
+          <strong className="text-black front-medium text-xl">R$ 239.000</strong>
           </div>
-          <div></div>
-          <div>
-            <span>São Paulo - SP</span>
+          <div className="w-full h-px bg-slate-200 my-2"></div>
+          <div className="px-2 pb-2">
+            <span className="text-black">São Paulo - SP</span>
           </div>
-
-        </section>
+        </section>      
       </main>
     </Container>
   );
