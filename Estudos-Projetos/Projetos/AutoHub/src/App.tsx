@@ -7,6 +7,7 @@ import { New } from "./pages/dashboard/new";
 import { CarDetail } from "./pages/car";
 
 import { Layout } from "./components/layout";
+import { Private } from './routes/private'
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: <Private> <Dashboard/> </Private>,
       },
       {
         path: "/dashboard/new",
