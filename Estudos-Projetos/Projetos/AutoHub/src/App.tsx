@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/new",
-        element: <New />,
+        element: <Private><New /></Private>,
       },
       {
         path: "/car/:id",
