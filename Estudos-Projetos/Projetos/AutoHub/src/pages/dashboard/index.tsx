@@ -4,7 +4,6 @@ import { FiTrash2 } from 'react-icons/fi'
 import { useEffect, useState, useContext } from 'react'
 import { collection, query, getDocs, where, doc, deleteDoc } from "firebase/firestore";
 import { db, storage } from "../../services/firebaseConnection";
-import { Link } from "react-router-dom";
 import { AuthContext } from '../../contexts/AuthContext';
 import { deleteObject, ref } from 'firebase/storage';
 
