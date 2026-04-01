@@ -4,7 +4,7 @@ import { DashboardHeader } from "../../../components/panelheader";
 import { FiUpload, FiTrash } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import { Input } from "../../../components/input";
-import { set, z } from "zod";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AuthContext } from '../../../contexts/AuthContext'
 import {v4 as uuidV4} from 'uuid'
