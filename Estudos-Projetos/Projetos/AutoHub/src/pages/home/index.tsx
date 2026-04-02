@@ -68,7 +68,7 @@ export function Home() {
         <h1>Carros novos e usados em todo o Brasil</h1>
       </strong>
 
-      <main className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 cursor-pointer">
+      <main className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {cars.map((car) => (
           <Link key={car.id} to={`/car/${car.id}`}>
             <section
@@ -79,7 +79,7 @@ export function Home() {
               style={{ display: loadedImages.includes(car.id) ? 'none' : 'block' }}
               ></div>
               <img
-                className="w-full rounded-t-lg mb-2 max-h-72"
+                className="w-full rounded-t-lg mb-2 max-h-72 cursor-pointer"
                 src={car.images[0].url}
                 alt={car.name}
                 onLoad={() => handleImageLoad(car.id)}
