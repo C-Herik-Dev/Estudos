@@ -6,6 +6,7 @@ import { collection, query, getDocs, where, doc, deleteDoc } from "firebase/fire
 import { db, storage } from "../../services/firebaseConnection";
 import { AuthContext } from '../../contexts/AuthContext';
 import { deleteObject, ref } from 'firebase/storage';
+import {toast} from 'react-toastify'
 
 interface CarProps {
   id: string;
@@ -69,6 +70,7 @@ export function Dashboard() {
       try{
         await deleteObject(imageRef)
         setCars(cars.filter(car => car.id !== itemCar.id))
+        toast.success("Carro excluido com sucesso!")
       }catch(err){
         console.log("erro ao tentar exluir imagens." + err)
       }

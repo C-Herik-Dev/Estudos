@@ -16,6 +16,7 @@ import {
   getDownloadURL,
   deleteObject
 } from 'firebase/storage'
+import {toast} from 'react-toastify'
 
 const schema = z.object({
   name: z.string().nonempty("O campo nome é obrigatório"),
@@ -68,7 +69,7 @@ export function New() {
       }
     })
     addDoc(collection(db, "cars"), {
-      name: data.name,
+      name: data.name.toUpperCase(),
       model: data.model,
       whatsaap: data.whatsapp,
       city: data.city,
@@ -83,10 +84,11 @@ export function New() {
     }).then(() => {
       reset();
       setCarImages([]);
-      alert("Carro cadastrado com sucesso!");
+      toast.success("Carro cadastrado com sucesso!")
     })
     .catch((error) => {
       console.log(error);
+      toast.error("Erro ao tentar cadastrar!")
     })
   }
 

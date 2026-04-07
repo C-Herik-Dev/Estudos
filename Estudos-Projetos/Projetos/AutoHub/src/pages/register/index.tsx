@@ -1,4 +1,4 @@
-import logoImg from '../../assets/logo.svg'
+import logoImg from '../../assets/logo.png'
 import { Container } from '../../components/container/index'
 import { Link, useNavigate } from 'react-router-dom'
 import { Input } from '../../components/input'
@@ -9,6 +9,7 @@ import { auth } from '../../services/firebaseConnection'
 import { createUserWithEmailAndPassword, updateProfile, signOut } from 'firebase/auth'
 import { useEffect, useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
+import {toast} from 'react-toastify'
 
 const schema = z.object({
   email: z.email("Insira um email válido.").nonempty("O campo email é obrigatório."),
@@ -44,11 +45,12 @@ export function Register() {
         email: data.email,
         uid: user.user.uid
       })
-      console.log("usuario cadastrado com sucesso")
+      toast.success("Usuario cadastrado, bem vindo ao AutoHub!")
       navigate("/dashboard", {replace: true})
     })
     .catch((error) => {
-      console.log("Ops, algo deu errado" + error)
+      console.log(error)
+      toast.error("Erro ao tentar cadastrar.")
     })
   }
   return (

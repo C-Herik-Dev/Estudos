@@ -1,4 +1,4 @@
-import logoImg from "../../assets/logo.svg";
+import logoImg from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { FiUser, FiLogIn } from "react-icons/fi";
 import { AuthContext } from '../../contexts/AuthContext'
@@ -11,7 +11,9 @@ export function Header() {
     <div className="bg-white drop-shadow mb-4 h-16 w-full flex items-center justify-center">
       <header className="flex max-w-7xl w-full items-center justify-between px-4 mx-auto">
         <Link to="/">
-          <img src={logoImg} alt="Logo do site" />
+          <img 
+          className="h-12 hover:scale-105 transition-all"
+          src={logoImg} alt="Logo do site" />
         </Link>
         {!loadingAuth && signed && (
           <Link to="/dashboard">

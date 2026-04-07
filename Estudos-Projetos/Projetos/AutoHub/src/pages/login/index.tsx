@@ -1,4 +1,4 @@
-import logoImg from "../../assets/logo.svg";
+import logoImg from "../../assets/logo.png";
 import { Container } from "../../components/container/index";
 import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../../components/input";
@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../../services/firebaseConnection";
 import { useEffect } from "react";
+import {toast} from 'react-toastify'
 
 const schema = z.object({
   email: z
@@ -42,8 +43,10 @@ export function Login() {
     try {
       await signInWithEmailAndPassword(auth, data.email, data.password);
       navigate("/dashboard", { replace: true });
+      toast.success("Bem Vindo ao AutoHub!")
     } catch (error) {
       console.log(error);
+      toast.error("Erro ao fazer login.")
     }
   }
   return (
@@ -78,6 +81,7 @@ export function Login() {
           <button
             type="submit"
             className="bg-zinc-900 w-full rounded-md text-white h-10 font-medium mb-3"
+            
           >
             Acessar
           </button>

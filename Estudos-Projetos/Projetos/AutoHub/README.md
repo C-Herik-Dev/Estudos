@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# 🚗 AutoHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AutoHub é uma aplicação web desenvolvida com foco em aprendizado, simulando uma plataforma de anúncio e visualização de veículos.
 
-Currently, two official plugins are available:
+O projeto permite que usuários se autentiquem, cadastrem veículos e visualizem anúncios de forma simples e organizada.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 📸 Demonstração
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Interface moderna com listagem de veículos, autenticação de usuários e gerenciamento de anúncios.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tecnologias utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* ReactJS
+* TypeScript
+* Vite
+* Firebase (Auth e Firestore)
+* React Router DOM
+* Tailwind CSS
+* React Toastify
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ⚙️ Funcionalidades
+
+* 🔐 Autenticação de usuários (login e cadastro)
+* 🚗 Cadastro de veículos
+* 📋 Listagem de carros disponíveis
+* 🗑️ Remoção de anúncios
+* 🔍 Busca de veículos
+* 🔔 Notificações com toast
+* 📱 Layout responsivo
+
+---
+
+## 🧠 Aprendizados
+
+Durante o desenvolvimento deste projeto, foram trabalhados conceitos importantes como:
+
+* Gerenciamento de estado com Context API
+* Estruturação de rotas com React Router
+* Integração com Firebase
+* Organização de componentes e pastas
+* Boas práticas de UI e UX
+* Manipulação de formulários e validação
+
+---
+
+## 📁 Estrutura do projeto
+
+```bash
+src/
+  components/
+  pages/
+  contexts/
+  services/
+  routes/
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ▶️ Como executar o projeto
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Clonar repositório
+git clone https://github.com/C-Herik-Dev/Estudos
+
+# Acessar pasta do projeto
+cd nome-da-pasta
+
+# Instalar dependências
+npm install
+
+# Rodar projeto
+npm run dev
 ```
+
+---
+
+## ⚠️ Observações
+
+Este projeto foi desenvolvido com fins de estudo e prática, com base em aulas e adaptações próprias.
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por Carlos Herik
+🔗 LinkedIn: https://www.linkedin.com/in/carlosherik-dev
+🔗 GitHub: https://github.com/C-Herik-Dev

@@ -1,6 +1,6 @@
 import { Container } from "../../components/container";
 import { useState, useEffect } from "react";
-import { collection, query, getDocs, orderBy } from "firebase/firestore";
+import { collection, query, getDocs, orderBy, where } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 import { Link } from "react-router-dom";
 
@@ -23,9 +23,12 @@ interface CarImageProps {
 export function Home() {
   const [cars, setCars] = useState<CarProps[]>([]);
   const [loadedImages, setLoadedImages] = useState<string[]>([]);
-
+  const [input, setInput] = useState("")
   useEffect(() => {
-    function loadCars() {
+    loadCars();
+  }, []);
+
+  function loadCars() {
       const carsRef = collection(db, "cars");
       const queryRef = query(carsRef, orderBy("created", "desc"));
       getDocs(queryRef).then((snapshot) => {
@@ -43,13 +46,40 @@ export function Home() {
           });
         });
         setCars(listcars);
-      });
-    }
-    loadCars();
-  }, []);
+      })};
 
   function handleImageLoad(id: string){
     setLoadedImages((prevImageLoaded) => [...prevImageLoaded, id]);
+  }
+
+  async function handleSearchCar() {
+    if(input === ''){
+      loadCars();
+      return;
+    }
+    setCars([]);
+    setLoadedImages([]);
+
+    const q = query(collection(db, "cars"), 
+    where("name", ">=", input.toUpperCase()),
+    where("name", "<=", input.toUpperCase() + "\uf8ff")
+    )
+    const querySnapshot = await getDocs(q)
+    let listcars = [] as CarProps[];
+
+    querySnapshot.forEach((doc)=> {
+          listcars.push({
+            id: doc.id,
+            name: doc.data().name,
+            year: doc.data().year,
+            price: doc.data().price,
+            uid: doc.data().uid,
+            city: doc.data().city,
+            km: doc.data().km,
+            images: doc.data().images,
+          });
+        });
+        setCars(listcars)
   }
 
   return (
@@ -59,8 +89,12 @@ export function Home() {
           className="w-full max-w-6xl border border-gray-400 rounded h-9 mr-4 p-3 outline-none"
           type="text"
           placeholder="Digite o nome do carro..."
+          value={input}
+          onChange={(e) => setInput(e.target.value) }
         />
-        <button className="bg-red-500 text-white w-49 rounded h-9 font-medium cursor-pointer hover:scale-105 transition-all">
+        <button 
+        onClick={handleSearchCar}
+        className="bg-red-500 text-white w-49 rounded h-9 font-medium cursor-pointer hover:scale-105 transition-all">
           Buscar
         </button>
       </section>
