@@ -106,7 +106,7 @@ export function Home() {
         {cars.map((car) => (
           <Link key={car.id} to={`/car/${car.id}`}>
             <section
-              className="bg-white w-full rounded-lg hover:scale-105 transition-all shadow"
+              className="bg-white w-full max-w-118 mx-auto rounded-lg hover:scale-105 transition-all shadow"
             >
               <div
               className="w-full rounded-t-lg bg-slate-200 h-72"
